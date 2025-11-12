@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ละอองดาว ทาลาว</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            background: linear-gradient(to bottom, 
+                #0a0e27 0%, 
+                #1a1a3e 30%, 
+                #2d1b4e 60%, 
+                #1a1a3e 100%);
+            position: relative;
+        }
+
+        /* พื้นหลังท้องฟ้า */
+        .sky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* ดาว */
+        .star {
+            position: absolute;
+            background: #fffacd;
+            border-radius: 50%;
+            animation: twinkle linear infinite;
+            box-shadow: 0 0 10px #fffacd, 0 0 20px #fff9a6;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* ดวงจันทร์ */
+        .moon {
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, #fff9e6, #e6dcc8);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 40px rgba(255, 249, 230, 0.5),
+                0 0 80px rgba(255, 249, 230, 0.3),
+                inset -10px -10px 20px rgba(200, 190, 170, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* กล่องเนื้อหาหลัก */
+        .container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 60px 50px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 
+                0 0 20px rgba(255, 250, 205, 0.5),
+                0 0 40px rgba(186, 148, 255, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #d4c5f9;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            border-color: #fffacd;
+            box-shadow: 
+                0 0 20px rgba(255, 250, 205, 0.4),
+                0 0 40px rgba(186, 148, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .moon {
+                width: 80px;
+                height: 80px;
+                top: 10%;
+                right: 10%;
+            }
+
+            .content-box {
+                padding: 40px 30px;
+            }
+
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 12px 28px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* เอฟเฟกต์แสงพื้นหลัง */
+        .glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: moveGlow 15s ease-in-out infinite;
+        }
+
+        .glow-1 {
+            top: 20%;
+            left: 10%;
+            background: #ba94ff;
+        }
+
+        .glow-2 {
+            bottom: 20%;
+            right: 10%;
+            background: #4a5fd9;
+            animation-delay: -7s;
+        }
+
+        @keyframes moveGlow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+    </style>
+</head>
+<body>
+    <!-- พื้นหลังท้องฟ้า -->
+    <div class="sky" id="sky"></div>
+    
+    <!-- เอฟเฟกต์แสง -->
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    
+    <!-- ดวงจันทร์ -->
+    <div class="moon"></div>
+    
+    <!-- เนื้อหาหลัก -->
+    <div class="container">
+        <div class="content-box">
+            <h1 class="title">ละอองดาว ทาลาว</h1>
+            <p class="subtitle">พื้นที่แห่งแรงบันดาลใจและแสงดาวนุ่มนวล</p>
+            <div class="buttons">
+                <a href="#portfolio" class="btn"><span>ดูผลงาน</span></a>
+                <a href="#contact" class="btn"><span>ติดต่อเรา</span></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // สร้างดาวแบบสุ่ม
+        const sky = document.getElementById('sky');
+        const starCount = 100;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            
+            // ขนาดสุ่ม
+            const size = Math.random() * 3 + 1;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            
+            // ตำแหน่งสุ่ม
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            
+            // ความเร็วกะพริบสุ่ม
+            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            
+            sky.appendChild(star);
+        }
+    </script>
+</body>
+</html>
