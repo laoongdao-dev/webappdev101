@@ -4,30 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background: #83acea;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        .profile-img {
+            text-align: center;
+        }
+        .profile-img img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #e3ecf5;
+        }
+        h1, h2 {
+            text-align: center;
+            margin: 15px 0;
+            color: #2a3d66;
+        }
+        p {
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        ul {
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+        a {
+            color: #1d7bd7;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            margin-top: 25px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <h1>Profile</h1>
-        <h2>นางสาวละอองดาว ทาลาว</h2>
-        <h3>Laoongdao Talao</h3>
-        <p>รหัสนิสิต: 67026113</p>
-    </header>
 
-    <section>
-        <h2>คณะ/สาขา</h2>
-        <p>คณะเทคโนโลยีสารสนเทศและการสื่อสาร สาขาวิทยาการคอมพิวเตอร์</p>
-    </section>
+    <div class="container">
 
-    <section>
-        <h2>ช่องทางติดต่อ</h2>
-        <ul>
-            <li><a href="mailto:bimtalao2548@gmail.com">Email: bimtalao2548@gmail.com</a></li>
-            <li><a href="https://github.com/laoongdao-dev" target="_blank">GitHub: laoongdao-dev</a></li>
-        </ul>
-    </section>
+        <div class="profile-img">
+            <img src="images/beam.JPG" alt="รูปโปรไฟล์">
+        </div>
 
-    <footer>
-        <p>&copy; 2025 Laoongdao</p>
-    </footer>
+        <h1>Laoongdao Talao</h1>
+        <p style="text-align:center; font-size: 17px;">
+            ละอองดาว ทาลาว
+        </p>
+
+        <div class="section">
+            <h2>ข้อมูลส่วนตัว</h2>
+            <ul>
+                <li><b>ชื่อเล่น:</b> บีม</li>
+                <li><b>อายุ:</b> 20</li>
+                <li><b>วันเดือนปีเกิด:</b> 23/08/2005</li>
+                <li><b>กำลังศึกษา:</b> คณะเทคโนโลยีสารสนเทศและการสื่อสาร สาขาวิทยาการคอมพิวเตอร์ ชั้นปีที่ 2 มหาวิทยาลัยพะเยา</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>ประวัติการศึกษา</h2>
+            <ul>
+                <li>อนุบาล-มัธยมศึกษาตอนต้น: โรงเรียนบ้านไร่ดง</li>
+                <li>มัธยมศึกษาตอนปลาย (ห้องพิเศษวิทย์-คณิตฯ (pre-med)): โรงเรียนจักรคำคณาทร จังหวัดลำพูน</li>
+            </ul>
+        </div>
+
+        <style>
+    .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contact-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .contact-list img {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+    }
+</style>
+
+<div class="section">
+    <h2>ช่องทางติดต่อ</h2>
+    <ul class="contact-list">
+        <li>
+            <img src="images/email.png" alt="Email Icon">
+            <a href="mailto:bimtalao2548@gmail.com">bimtalao2548@gmail.com</a>
+        </li>
+
+        <li>
+            <img src="images/facebook.png" alt="Facebook Icon">
+            <a href="https://www.facebook.com/laoongdao.talao" target="_blank">Facebook</a>
+        </li>
+
+        <li>
+            <img src="images/instagram.png" alt="Instagram Icon">
+            <a href="https://www.instagram.com/laoongdao_t/" target="_blank">Instagram</a>
+        </li>
+
+        <li>
+            <img src="images/github.png" alt="GitHub Icon">
+            <a href="https://github.com/laoongdao-dev" target="_blank">GitHub</a>
+        </li>
+    </ul>
+</div>
+
+        <footer>
+            &copy; 2025 Laoongdao
+        </footer>
+
+    </div>
+
 </body>
 </html>
